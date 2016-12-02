@@ -1,0 +1,43 @@
+{
+    "name": "json-organizer",
+    "displayName": "JSON Organizer",
+    "description": "Help you organize JSON",
+    "version": "0.0.1",
+    "publisher": "rintoj",
+    "engines": {
+        "vscode": "^1.0.0"
+    },
+    "categories": [
+        "Other"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/rintoj/json-organizer.git"
+    },
+    "activationEvents": [
+        "onCommand:jsono.json-to-object"
+    ],
+    "main": "./out/src/json-organizer",
+    "contributes": {
+        "commands": [{
+            "command": "jsono.json-to-object",
+            "title": "JSON to Object"
+        }],
+        "keybindings": [{
+            "command": "jsono.json-to-object",
+            "title": "JSON to Object",
+            "key": "ctrl+Y",
+            "mac": "cmd+Y"
+        }]
+    },
+    "scripts": {
+        "vscode:prepublish": "node ./node_modules/vscode/bin/compile",
+        "compile": "node ./node_modules/vscode/bin/compile -watch -p ./",
+        "postinstall": "node ./node_modules/vscode/bin/install",
+        "test": "node ./node_modules/vscode/bin/test"
+    },
+    "devDependencies": {
+        "typescript": "^1.8.5",
+        "vscode": "^0.11.0"
+    }
+}
