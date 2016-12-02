@@ -1,32 +1,22 @@
 # JSON Organizer
 
-This extension will help with organizing JSON
+![Icon](./images/icon.png)
+
+This extension will help you toggle between JSON and JavaScript object format.
 
 ## Usage
 
-Select JSON in a text editor and press `Ctrl + Y` / `Cmd + Y`
+Select JSON in a text editor and press `Ctrl+Y` or `Cmd+Y` to switch between Object and JSON formats.
 
-## Example
+## Demo
 
-```
-{
-  "status": "deleted",
-  "item": {
-    "name": "Sample User",
-    "userId": "sample1@user.com",
-    "active": true,
-    "roles": [1, 2, 3]
-  }
-}
+Press `CTRL+Y` or `CMD+Y` (in Mac) to switch the selection between Object and JSON formats.
 
-// enter 'CTRL/CMD + Y' or 'CTRL/CMD + P' -> type '>JSON to Object' to get the following code
-
-{status: 'deleted', item: {name: 'Sample User', userId: 'sample1@user.com', active: true, roles: [1, 2, 3]}}
-```
+![Demo](./doc/demo.gif)
 
 ## Contributing
 
-Contributions are very welcome! Just send a pull request. Feel free to contact me or checkout my [Github](https://github.com/rintoj/chai-spec-generator) page.
+Contributions are very welcome! Just send a pull request. Feel free to contact me or checkout my [Github](https://github.com/rintoj/json-organizer) page.
 
 ## Author
 

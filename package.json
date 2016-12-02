@@ -2,8 +2,9 @@
     "name": "json-organizer",
     "displayName": "JSON Organizer",
     "description": "Help you organize JSON",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "publisher": "rintoj",
+    "icon": "images/icon.png",
     "engines": {
         "vscode": "^1.0.0"
     },
@@ -15,17 +16,17 @@
         "url": "git+https://github.com/rintoj/json-organizer.git"
     },
     "activationEvents": [
-        "onCommand:jsono.json-to-object"
+        "onCommand:jsono.toggleFormat"
     ],
     "main": "./out/src/json-organizer",
     "contributes": {
         "commands": [{
-            "command": "jsono.json-to-object",
-            "title": "JSON to Object"
+            "command": "jsono.toggleFormat",
+            "title": "Toggle between JSON and Object"
         }],
         "keybindings": [{
-            "command": "jsono.json-to-object",
-            "title": "JSON to Object",
+            "command": "jsono.toggleFormat",
+            "title": "Toggle between JSON and Object",
             "key": "ctrl+Y",
             "mac": "cmd+Y"
         }]
