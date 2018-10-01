@@ -9,13 +9,32 @@ import * as assert from 'assert';
 // as well as import your extension to test it
 import * as vscode from 'vscode';
 
-import { toObject } from '../src/json-organizer';
+import { doAction } from '../src/json-organizer';
 
 // Defines a Mocha test suite to group tests of similar kind together
 suite("Extension Tests", () => {
 
     // Defines a Mocha unit test
-    test("Something 1", () => {
-        assert.equal(true, true);
+    test("converts JSON to JS", () => {
+        const js = doAction(`{
+            "string": "qwe\\n\\t'rty",
+            "number": 1.23,
+            "boolean": true,
+            "array": [{ "n": 1, "b": false }, null],
+            "object": { "null": null }
+        }`);
+        assert.equal(js, `{
+    string: 'qwe\\n\\t\\'rty',
+    number: 1.23,
+    boolean: true,
+    array: [{
+        n: 1,
+        b: false
+    }, null],
+    object: {
+        null: null
+    }
+}`
+        );
     });
 });
