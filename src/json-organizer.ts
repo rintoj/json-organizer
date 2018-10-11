@@ -3,6 +3,7 @@
 // The module 'vscode' contains the VS Code extensibility API
 // Import the module and reference it with the alias vscode in your code below
 import * as vscode from 'vscode';
+
 var beautify = require('js-beautify').js_beautify;
 
 export function toObject(value) {
@@ -25,7 +26,7 @@ export function toObject(value) {
   return values.join('');
 }
 
-export function doAction(text: string): string | undefined {
+export function doAction(text: string): string | any {
   var output;
 
   try {
