@@ -20,16 +20,20 @@
     ],
     "main": "./out/src/json-organizer",
     "contributes": {
-        "commands": [{
-            "command": "jsono.toggleFormat",
-            "title": "Toggle between JSON and Object"
-        }],
-        "keybindings": [{
-            "command": "jsono.toggleFormat",
-            "title": "Toggle between JSON and Object",
-            "key": "ctrl+Y",
-            "mac": "cmd+Y"
-        }]
+        "commands": [
+            {
+                "command": "jsono.toggleFormat",
+                "title": "Toggle between JSON and Object"
+            }
+        ],
+        "keybindings": [
+            {
+                "command": "jsono.toggleFormat",
+                "title": "Toggle between JSON and Object",
+                "key": "ctrl+Y",
+                "mac": "cmd+Y"
+            }
+        ]
     },
     "scripts": {
         "vscode:prepublish": "node ./node_modules/vscode/bin/compile",
@@ -40,5 +44,8 @@
     "devDependencies": {
         "typescript": "^1.8.5",
         "vscode": "^0.11.0"
+    },
+    "dependencies": {
+        "js-beautify": "^1.8.6"
     }
 }
