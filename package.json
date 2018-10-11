@@ -2,7 +2,7 @@
   "name": "json-organizer",
   "displayName": "JSON Organizer",
   "description": "Help you organize JSON",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "publisher": "rintoj",
   "icon": "images/icon.png",
   "engines": {
