@@ -7,7 +7,10 @@ var beautify = require('js-beautify').js_beautify;
 
 export function toObject(value) {
     let values = [];
-    if (typeof value === 'string') {
+    if (value === null) {
+        return `null`;
+    } else if (typeof value === 'string') {
+        value = JSON.stringify(value).slice(1, -1);
         return `'${value.replace('\'', '\\\'')}'`;
     } else if (typeof value === 'number' || typeof value === 'boolean') {
         return `${value}`;
@@ -20,6 +23,24 @@ export function toObject(value) {
         }).join(`,`), `}`];
     }
     return values.join('');
+}
+
+export function doAction(text: string): string | undefined {
+    var output;
+
+    try {
+        let target = JSON.parse(text);
+        output = toObject(target);
+    } catch (e) { console.warn(e); }
+
+    if (output == undefined) {
+        try {
+            let target = eval('(' + text + ')');
+            output = JSON.stringify(target, null, 4);
+        } catch (e) { console.warn(e); }
+    }
+
+    return output && beautify(output);
 }
 
 // this method is called when your extension is activated
@@ -39,23 +60,10 @@ export function activate(context: vscode.ExtensionContext) {
 
         var selection = editor.selection;
         var text = editor.document.getText(selection);
-        var output;
-
-        try {
-            let target = JSON.parse(text);
-            output = toObject(target);
-        } catch (e) { console.warn(e); }
-
-        if (output == undefined) {
-            try {
-                let target = eval('(' + text + ')');
-                output = JSON.stringify(target, null, 4);
-            } catch (e) { console.warn(e); }
-        }
-
+        var output = doAction(text);
         if (output == undefined) return;
         editor.edit((edit) => {
-            edit.replace(editor.selection, beautify(output));
+            edit.replace(editor.selection, output);
         });
 
     });
