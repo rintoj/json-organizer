@@ -41,6 +41,7 @@
     "test": "node ./node_modules/vscode/bin/test"
   },
   "devDependencies": {
+    "@types/node": "^17.0.23",
     "@types/vscode": "^1.14.0",
     "typescript": "^1.8.5"
   },
