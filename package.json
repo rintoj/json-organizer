@@ -6,7 +6,7 @@
   "publisher": "rintoj",
   "icon": "images/icon.png",
   "engines": {
-    "vscode": "^1.0.0"
+    "vscode": "^1.14.0"
   },
   "categories": [
     "Other"
@@ -36,14 +36,13 @@
     ]
   },
   "scripts": {
-    "vscode:prepublish": "node ./node_modules/vscode/bin/compile",
-    "compile": "node ./node_modules/vscode/bin/compile -watch -p ./",
-    "postinstall": "node ./node_modules/vscode/bin/install",
+    "vscode:prepublish": "tsc -p .",
+    "compile": "npm run vscode:prepublish -- --watch",
     "test": "node ./node_modules/vscode/bin/test"
   },
   "devDependencies": {
-    "typescript": "^1.8.5",
-    "vscode": "^0.11.0"
+    "@types/vscode": "^1.14.0",
+    "typescript": "^1.8.5"
   },
   "dependencies": {
     "js-beautify": "^1.8.6"
